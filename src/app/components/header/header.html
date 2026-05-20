@@ -1,1 +1,11 @@
-<p>header works!</p>
+<div class="header">
+    <a routerLink="home" class="logo">Universitet X</a>
+    <nav class="nav">
+        <ul class="nav-links">
+            <li><a routerLink="courses" routerLinkActive="active"
+                    [routerLinkActiveOptions]="{exact: true}">Kurslista</a></li>
+            <li><a routerLink="schedule" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Mina
+                    kurser</a></li>
+        </ul>
+    </nav>
+</div>
