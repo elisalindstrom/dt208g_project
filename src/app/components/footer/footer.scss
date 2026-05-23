@@ -1,8 +1,50 @@
 .footer {
+    background-color: #000000;
+    color: #FFFFFF;
+}
+
+.footer-content {
+    max-width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 4rem 2rem;
+}
+
+.footer-logo {
     display: flex;
     align-items: center;
-    justify-content: center;
-    padding: 5rem 1rem;
-    margin: 0 auto;
-    background-color: #f6f5f4;
+    color: #FFFFFF;
+    font-size: 24px;
+    font-style: italic;
+    padding-bottom: 2rem;
+}
+
+.footer-section {
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid #FFFFFF;
+    padding-top: 2rem;
+
+    h2 {
+        margin-bottom: 0.5rem;
+    }
+
+    li {
+        margin-bottom: 0.5rem;
+
+        a {
+            color: #FFFFFF;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .footer-section {
+        flex-direction: column;
+        gap: 2rem;
+    }
 }

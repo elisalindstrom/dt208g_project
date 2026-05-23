@@ -1,0 +1,75 @@
+.content {
+   max-width: 1280px;
+   margin-left: auto;
+   margin-right: auto;
+}
+
+h1, h2 {
+   margin-bottom: 1rem;
+}
+
+.form-search {
+   background-color: #f6f5f4;
+   padding: 1.5rem;
+   display: flex;
+   justify-content: space-between;
+   gap: 20px;
+}
+
+.filter {
+   display: flex;
+   justify-content: flex-end;
+   align-items: center;
+   gap: 15rem;
+   padding-top: 2rem;
+   padding-bottom: 1rem;
+
+   .sort {
+      max-width: 90px;
+   }
+}
+
+.course-list {
+   display: grid;
+   grid-template-columns: repeat(3, 1fr);
+   gap: 4rem;
+   margin: auto;
+   margin-top: 1rem;
+
+   #course-card {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      background-color: #f6f5f4;
+      padding: 1rem;
+   }
+}
+
+/* Input */
+input,
+select {
+   width: 100%;
+   font-size: 16px;
+   border: 1px solid #000000;
+   border-radius: 10px;
+   padding: 0.8rem;
+   box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.07);
+}
+
+button {
+   cursor: pointer;
+   border: transparent;
+   background-color: #000000;
+   color: #FFFFFF;
+   padding: 0.5rem 1rem;
+   border-radius: 10px;
+   font-size: 16px;
+   min-height: 44px;
+   width: 100%;
+
+   &:hover {
+      background-color: #f6f5f4;
+      color: #000000;
+      box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.3);
+   }
+}
