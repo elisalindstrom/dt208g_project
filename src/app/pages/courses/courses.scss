@@ -4,34 +4,44 @@
    margin-right: auto;
 }
 
-h1,
-h2 {
-   margin-bottom: 1rem;
-}
-
 .form-search {
    background-color: #f6f5f4;
    padding: 1.5rem;
+   margin-top: 1rem;
    display: flex;
    justify-content: space-between;
    gap: 20px;
    border-radius: 10px;
 }
 
-.sorting {
+.search-result-top {
    display: flex;
    justify-content: space-between;
    align-items: center;
    padding-top: 2rem;
    padding-bottom: 1rem;
 
+   .sort-total {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+
+      .amount {
+         font-size: 20px;
+      }
+
+      .length {
+         font-weight: 400;
+      }
+   }
+
    .sort-control {
       display: flex;
-      align-items: end;
+      align-items: center;
       gap: 0.5rem;
 
       label {
-         font-size: 18px;
+         font-size: 20px;
       }
 
       select {
@@ -47,16 +57,27 @@ h2 {
    margin: auto;
    padding-bottom: 2rem;
 
-   #course-card {
+   .course-card {
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
       background-color: #f6f5f4;
-      padding: 1rem;
       border-radius: 10px;
 
+      .course-card-head {
+         background-color: aqua;
+         padding: 0.5rem;
+      }
+
+      .course-card-content {
+         display: flex;
+         flex-direction: column;
+         flex-grow: 1;
+         padding: 1rem;
+         gap: 8px;
+      }
+
       button {
-         margin-top: 1rem;
+         margin-top: auto;
       }
    }
 }

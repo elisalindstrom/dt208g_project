@@ -18,8 +18,11 @@
     </section>
 
     <section class="search-result">
-        <div class="sorting">
-            <h2 class="amount">Sökresultat: Antal</h2>
+        <div class="search-result-top">
+            <div class="sort-total">
+                <h2 class="amount">Sökresultat: <span class="length">Visar {{ sortedCourses().length }} kurser</span>
+                </h2>
+            </div>
 
             <div class="sort-control">
                 <label for="option">Sortera efter:</label>
@@ -37,12 +40,14 @@
         <h2>Kurser</h2>
         <div class="course-list">
             @for (course of sortedCourses(); track course.courseCode + '-' + course.subjectCode) {
-            <div id="course-card">
-                <h3>{{ course.courseName }}</h3>
-                <p>{{ course.subject }}</p>
-                <p>{{ course.courseCode }}</p>
-                <p>{{ course.points }} hp</p>
-                <button>Lägg till</button>
+            <div class="course-card">
+                <p class="course-card-head">{{ course.subject }}</p>
+                <div class="course-card-content">
+                    <h3>{{ course.courseName }}</h3>
+                    <p>{{ course.courseCode }}</p>
+                    <p>{{ course.points }} hp</p>
+                    <button (click)="addCourse(course)">Lägg till</button>
+                </div>
             </div>
             }
         </div>

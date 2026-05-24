@@ -1,1 +1,16 @@
-<p>schedule works!</p>
+<div class="content">
+    <h1>Sparade kurser</h1>
+    <div class="course-list">
+        @for (course of scheduleService.scheduleCourses(); track course.courseCode + '-' + course.subjectCode) {
+        <div class="course-card">
+            <p class="course-card-head">{{ course.subject }}</p>
+            <div class="course-card-content">
+                <h3>{{ course.courseName }}</h3>
+                <p>{{ course.courseCode }}</p>
+                <p>{{ course.points }} hp</p>
+                <button>Ta bort</button>
+            </div>
+        </div>
+        }
+    </div>
+</div>

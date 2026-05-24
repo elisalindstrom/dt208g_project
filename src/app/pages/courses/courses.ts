@@ -2,6 +2,7 @@ import { Component, computed, inject, signal } from '@angular/core';
 import { CourseService } from '../../services/course-service';
 import { Course } from '../../interfaces/course';
 import { CommonModule } from '@angular/common';
+import { ScheduleService } from '../../services/schedule-service';
 
 @Component({
   selector: 'app-courses',
@@ -16,6 +17,7 @@ export class Courses {
   selectedSubject = signal(""); // Ämne
 
   courseService = inject(CourseService);
+  scheduleService = inject(ScheduleService);
 
   // Körs vid start
   ngOnInit(): void {
@@ -44,6 +46,7 @@ export class Courses {
     return filtered;
   })
 
+  // Ämnesval
   subjects = computed(() => {
     const allSubjects = this.courses().map(course => course.subject);
 
@@ -88,11 +91,17 @@ export class Courses {
     return this.filteredCourses();
   })
 
+  // Lägg till kurs
+  addCourse(course: Course) {
+ this.scheduleService.addCourse(course);
+  }
+
   // Ändrar signalvärdet för filtrering
   onCoursesFiltered(filter: string) {
     this.filterInput.set(filter);
   }
 
+  // Ändrar signalvärdet för ämnesval
   onSubjectChange(subject: string) {
     this.selectedSubject.set(subject);
   }
@@ -111,7 +120,7 @@ export class Courses {
     try {
       const response = await this.courseService.getCourses();
       this.courses.set(response);
-      console.table(response);
+      console.table(response); // TA BORT!!
     } catch (error) {
       console.error(error);
     }
