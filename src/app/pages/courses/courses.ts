@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, computed, inject, signal } from '@angular/core';
 import { CourseService } from '../../services/course-service';
 import { Course } from '../../interfaces/course';
 import { CommonModule } from '@angular/common';
@@ -10,12 +10,96 @@ import { CommonModule } from '@angular/common';
   styleUrl: './courses.scss',
 })
 export class Courses {
-  courses: Course[] = [];
+  courses = signal<Course[]>([]);
+  filterInput = signal(""); // Filtrering
+  sortOrder = signal(""); // Sortering
+  selectedSubject = signal(""); // Ämne
+
   courseService = inject(CourseService);
 
   // Körs vid start
   ngOnInit(): void {
     this.loadCourses();
+  }
+
+  // Filtrering
+  filteredCourses = computed(() => {
+    const filter = this.filterInput().trim().toLowerCase();
+    const subject = this.selectedSubject();
+    let filtered = this.courses();
+
+    if (filter) {
+      filtered = filtered.filter(c =>
+        c.courseCode.toLowerCase().includes(filter) ||
+        c.courseName.toLowerCase().includes(filter)
+      )
+    }
+
+    if (subject) {
+      filtered = filtered.filter(c =>
+        c.subject === subject
+      )
+    }
+
+    return filtered;
+  })
+
+  subjects = computed(() => {
+    const allSubjects = this.courses().map(course => course.subject);
+
+    return [...new Set(allSubjects)].sort();
+  })
+
+  // Sortering
+  sortedCourses = computed(() => {
+    const sort = this.sortOrder();
+
+    // A-Ö
+    if (sort === 'courseNameAsc') {
+      return [...this.filteredCourses()].sort((a, b) =>
+        a.courseName.localeCompare(b.courseName))
+    }
+
+    // Ö-A
+    if (sort === 'courseNameDesc') {
+      return [...this.filteredCourses()].sort((a, b) =>
+        b.courseName.localeCompare(a.courseName))
+    }
+
+    // Ämne
+    if (sort === 'subject') {
+      return [...this.filteredCourses()].sort((a, b) =>
+        a.subject.localeCompare(b.subject))
+    }
+
+    // HP
+    if (sort === 'points') {
+      return [...this.filteredCourses()].sort((a, b) =>
+        a.points - b.points)
+    }
+
+    // Kurskod
+    if (sort === 'courseCode') {
+      return [...this.filteredCourses()].sort((a, b) =>
+        a.courseCode.localeCompare(b.courseCode))
+    }
+
+    // Returnerar alltid ett värde
+    return this.filteredCourses();
+  })
+
+  // Ändrar signalvärdet för filtrering
+  onCoursesFiltered(filter: string) {
+    this.filterInput.set(filter);
+  }
+
+  onSubjectChange(subject: string) {
+    this.selectedSubject.set(subject);
+  }
+
+  // Ändrar signalvärdet för sortering
+  onCoursesSorted(order: string) {
+    this.sortOrder.set(order);
   }
 
   /* trackCourse(course: Course): string {
@@ -26,7 +110,7 @@ export class Courses {
   async loadCourses() {
     try {
       const response = await this.courseService.getCourses();
-      this.courses = response;
+      this.courses.set(response);
       console.table(response);
     } catch (error) {
       console.error(error);

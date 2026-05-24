@@ -4,7 +4,8 @@
    margin-right: auto;
 }
 
-h1, h2 {
+h1,
+h2 {
    margin-bottom: 1rem;
 }
 
@@ -14,18 +15,28 @@ h1, h2 {
    display: flex;
    justify-content: space-between;
    gap: 20px;
+   border-radius: 10px;
 }
 
-.filter {
+.sorting {
    display: flex;
-   justify-content: flex-end;
+   justify-content: space-between;
    align-items: center;
-   gap: 15rem;
    padding-top: 2rem;
    padding-bottom: 1rem;
 
-   .sort {
-      max-width: 90px;
+   .sort-control {
+      display: flex;
+      align-items: end;
+      gap: 0.5rem;
+
+      label {
+         font-size: 18px;
+      }
+
+      select {
+         min-width: 150px;
+      }
    }
 }
 
@@ -34,15 +45,24 @@ h1, h2 {
    grid-template-columns: repeat(3, 1fr);
    gap: 4rem;
    margin: auto;
-   margin-top: 1rem;
+   padding-bottom: 2rem;
 
    #course-card {
       display: flex;
       flex-direction: column;
-      height: 100%;
+      justify-content: space-between;
       background-color: #f6f5f4;
       padding: 1rem;
+      border-radius: 10px;
+
+      button {
+         margin-top: 1rem;
+      }
    }
+}
+
+label {
+   width: 100%;
 }
 
 /* Input */
@@ -71,5 +91,20 @@ button {
       background-color: #f6f5f4;
       color: #000000;
       box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.3);
+   }
+}
+
+@media screen and (max-width: 800px) {
+   .form-search {
+      flex-direction: column;
+   }
+
+   .course-list {
+      grid-template-columns: 1fr;
+   }
+
+   .sorting {
+      flex-direction: column;
+      align-items: flex-end;
    }
 }

@@ -4,29 +4,45 @@
 
         <form class="form-search" autocomplete="off">
             <input type="text" id="search" name="search" placeholder="Sök efter kurskod eller kursnamn"
-                aria-label="Sök kurser">
+                aria-label="Sök kurser" #searchInput [value]="filterInput()"
+                (input)="onCoursesFiltered(searchInput.value)">
 
-            <select id="option" name="option" aria-label="Välj ämne">
-                <option value="0">Alla ämnen</option>
+            <select id="select" name="select" aria-label="Välj ämne" #select [value]="selectedSubject()"
+                (change)="onSubjectChange(select.value)">
+                <option value="">Alla ämnen</option>
+                @for (subject of subjects(); track subject) {
+                <option>{{ subject }}</option>
+                }
             </select>
-
-            <button>Sök kurser</button>
         </form>
     </section>
 
     <section class="search-result">
-        <div class="filter">
+        <div class="sorting">
             <h2 class="amount">Sökresultat: Antal</h2>
-            <button class="sort">A-Ö</button>
+
+            <div class="sort-control">
+                <label for="option">Sortera efter:</label>
+                <select id="option" name="option" aria-label="Sortera efter" #sortBy [value]="sortOrder()"
+                    (change)="onCoursesSorted(sortBy.value)">
+                    <option value="courseNameAsc">Kursnamn A-Ö</option>
+                    <option value="courseNameDesc">Kursnamn Ö-A</option>
+                    <option value="subject">Ämne A-Ö</option>
+                    <option value="points">Högskolepoäng</option>
+                    <option value="courseCode">Kurskod</option>
+                </select>
+            </div>
         </div>
 
         <h2>Kurser</h2>
         <div class="course-list">
-            @for (course of courses; track course.courseCode + '-' + course.subjectCode) {
+            @for (course of sortedCourses(); track course.courseCode + '-' + course.subjectCode) {
             <div id="course-card">
-                <h3>{{ course.courseCode }}</h3>
-                <p>{{ course.courseName }}</p>
-                <p>{{ course.points }}</p>
+                <h3>{{ course.courseName }}</h3>
+                <p>{{ course.subject }}</p>
+                <p>{{ course.courseCode }}</p>
+                <p>{{ course.points }} hp</p>
+                <button>Lägg till</button>
             </div>
             }
         </div>
