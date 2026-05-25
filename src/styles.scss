@@ -28,3 +28,24 @@ a {
 ul {
     list-style: none;
 }
+
+button {
+    cursor: pointer;
+    border: transparent;
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+    min-height: 44px;
+    width: 100%;
+}
+
+label {
+    width: 100%;
+}
+
+input,
+select {
+    width: 100%;
+    border: 1px solid #000000;
+    border-radius: 10px;
+    padding: 0.8rem;
+}

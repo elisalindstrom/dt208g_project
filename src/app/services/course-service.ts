@@ -7,7 +7,7 @@ import { firstValueFrom } from 'rxjs';
   providedIn: 'root',
 })
 export class CourseService {
-  private url: string = '/miun_courses.json';
+  private url: string = '/api/miun_courses.json';
 
   http = inject(HttpClient);
 

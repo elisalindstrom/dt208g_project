@@ -4,11 +4,32 @@
     margin-right: auto;
 }
 
+.saved-section {
+    padding: 1rem;
+}
+
+.result-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 2rem;
+    padding-bottom: 1rem;
+
+    .total {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+
+        .total-points {
+            font-weight: 400;
+        }
+    }
+}
+
 .course-list {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 4rem;
-    margin: auto;
+    gap: 3rem;
     padding-bottom: 2rem;
 
     .course-card {
@@ -16,6 +37,8 @@
         flex-direction: column;
         background-color: #f6f5f4;
         border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.07);
 
         .course-card-head {
             background-color: #86c9cb;
@@ -29,27 +52,25 @@
             padding: 1rem;
             gap: 8px;
         }
-
-        button {
-            margin-top: auto;
-        }
     }
 }
 
 button {
-    cursor: pointer;
-    border: transparent;
     background-color: #000000;
     color: #FFFFFF;
-    padding: 0.5rem 1rem;
-    border-radius: 10px;
     font-size: 16px;
-    min-height: 44px;
-    width: 100%;
+    margin-top: auto;
 
     &:hover {
         background-color: #f6f5f4;
         color: #000000;
         box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.3);
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .course-list {
+        grid-template-columns: 1fr;
+        gap: 2rem;
     }
 }

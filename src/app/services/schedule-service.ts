@@ -7,7 +7,7 @@ import { Course } from '../interfaces/course';
 export class ScheduleService {
   scheduleCourses = signal<Course[]>([]);
 
- constructor() {
+  constructor() {
     this.loadCourses();
   }
 
@@ -20,6 +20,12 @@ export class ScheduleService {
       this.scheduleCourses.set(updatedCourses);
       localStorage.setItem("schedule", JSON.stringify(updatedCourses));
     }
+  }
+
+  deleteCourse(remove: Course) {
+    const updatedCourses = this.scheduleCourses().filter(course => course.courseCode !== remove.courseCode);
+    this.scheduleCourses.set(updatedCourses);
+    localStorage.setItem("schedule", JSON.stringify(updatedCourses));
   }
 
   loadCourses() {

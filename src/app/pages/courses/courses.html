@@ -1,5 +1,5 @@
 <div class="content">
-    <section class="search">
+    <section class="search-section">
         <h1>Sök bland våra kurser</h1>
 
         <form class="form-search" autocomplete="off">
@@ -15,14 +15,10 @@
                 }
             </select>
         </form>
-    </section>
 
-    <section class="search-result">
         <div class="search-result-top">
-            <div class="sort-total">
-                <h2 class="amount">Sökresultat: <span class="length">Visar {{ sortedCourses().length }} kurser</span>
-                </h2>
-            </div>
+            <h2>Sökresultat: <span class="length">Visar {{ sortedCourses().length }} kurser</span>
+            </h2>
 
             <div class="sort-control">
                 <label for="option">Sortera efter:</label>
@@ -31,6 +27,7 @@
                     <option value="courseNameAsc">Kursnamn A-Ö</option>
                     <option value="courseNameDesc">Kursnamn Ö-A</option>
                     <option value="subject">Ämne A-Ö</option>
+                    <option value="subjectDesc">Ämne Ö-A</option>
                     <option value="points">Högskolepoäng</option>
                     <option value="courseCode">Kurskod</option>
                 </select>
@@ -51,5 +48,6 @@
             </div>
             }
         </div>
+
     </section>
 </div>

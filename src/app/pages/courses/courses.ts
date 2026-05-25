@@ -69,10 +69,16 @@ export class Courses {
         b.courseName.localeCompare(a.courseName))
     }
 
-    // Ämne
+    // Ämne A-Ö
     if (sort === 'subject') {
       return [...this.filteredCourses()].sort((a, b) =>
         a.subject.localeCompare(b.subject))
+    }
+
+    // Ämne Ö-A
+    if (sort === 'subjectDesc') {
+      return [...this.filteredCourses()].sort((a, b) =>
+        b.subject.localeCompare(a.subject))
     }
 
     // HP
@@ -93,7 +99,7 @@ export class Courses {
 
   // Lägg till kurs
   addCourse(course: Course) {
- this.scheduleService.addCourse(course);
+    this.scheduleService.addCourse(course);
   }
 
   // Ändrar signalvärdet för filtrering

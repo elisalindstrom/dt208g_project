@@ -4,14 +4,18 @@
    margin-right: auto;
 }
 
+.search-section {
+   padding: 1rem;
+}
+
 .form-search {
    background-color: #f6f5f4;
    padding: 1.5rem;
    margin-top: 1rem;
    display: flex;
-   justify-content: space-between;
    gap: 20px;
    border-radius: 10px;
+   box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.07);
 }
 
 .search-result-top {
@@ -21,18 +25,8 @@
    padding-top: 2rem;
    padding-bottom: 1rem;
 
-   .sort-total {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-
-      .amount {
-         font-size: 20px;
-      }
-
-      .length {
-         font-weight: 400;
-      }
+   .length {
+      font-weight: 400;
    }
 
    .sort-control {
@@ -46,6 +40,7 @@
 
       select {
          min-width: 150px;
+         max-width: 100%;
       }
    }
 }
@@ -53,8 +48,7 @@
 .course-list {
    display: grid;
    grid-template-columns: repeat(3, 1fr);
-   gap: 4rem;
-   margin: auto;
+   gap: 3rem;
    padding-bottom: 2rem;
 
    .course-card {
@@ -62,9 +56,11 @@
       flex-direction: column;
       background-color: #f6f5f4;
       border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.07);
 
       .course-card-head {
-         background-color: aqua;
+         background-color: #86c9cb;
          padding: 0.5rem;
       }
 
@@ -75,38 +71,19 @@
          padding: 1rem;
          gap: 8px;
       }
-
-      button {
-         margin-top: auto;
-      }
    }
 }
 
-label {
-   width: 100%;
-}
-
-/* Input */
 input,
 select {
-   width: 100%;
    font-size: 16px;
-   border: 1px solid #000000;
-   border-radius: 10px;
-   padding: 0.8rem;
-   box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.07);
 }
 
 button {
-   cursor: pointer;
-   border: transparent;
    background-color: #000000;
    color: #FFFFFF;
-   padding: 0.5rem 1rem;
-   border-radius: 10px;
    font-size: 16px;
-   min-height: 44px;
-   width: 100%;
+   margin-top: auto;
 
    &:hover {
       background-color: #f6f5f4;
@@ -122,10 +99,12 @@ button {
 
    .course-list {
       grid-template-columns: 1fr;
+      gap: 2rem;
    }
 
-   .sorting {
+   .search-result-top {
       flex-direction: column;
       align-items: flex-end;
+      gap: 1rem;
    }
 }
