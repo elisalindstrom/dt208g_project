@@ -1,11 +1,34 @@
 <div class="header">
-    <a routerLink="home" class="logo">Norruniversitetet</a>
-    <nav class="nav">
-        <ul class="nav-links">
-            <li><a routerLink="courses" routerLinkActive="active"
-                    [routerLinkActiveOptions]="{exact: true}">Kurslista</a></li>
-            <li><a routerLink="schedule" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Mina
+    <div class="header-content">
+        <a routerLink="home" class="logo" [class.logo-hidden]="navbarMobileVisible">Norruniversitetet</a>
+
+        <!-- Meny desktop -->
+        <nav class="nav">
+            <ul class="nav-links">
+                <li><a routerLink="courses" routerLinkActive="active"
+                        [routerLinkActiveOptions]="{exact: true}">Kurslista</a></li>
+                <li><a routerLink="schedule" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Mina
+                        kurser</a></li>
+            </ul>
+        </nav>
+
+        <button class="menu-btn" type="button" (click)="toggleMobileMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </div>
+
+    <!-- Meny mobil -->
+    @if (navbarMobileVisible === true) {
+    <nav class="nav-mobile">
+        <ul class="nav-mobile-links">
+            <li><a routerLink="courses" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"
+                    (click)="toggleMobileMenu()">Kurslista</a></li>
+            <li><a routerLink="schedule" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"
+                    (click)="toggleMobileMenu()">Mina
                     kurser</a></li>
         </ul>
     </nav>
+    }
 </div>

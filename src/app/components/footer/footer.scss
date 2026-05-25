@@ -7,22 +7,12 @@
     max-width: 1280px;
     margin-left: auto;
     margin-right: auto;
-    padding: 4rem 2rem;
-}
-
-.footer-logo {
-    display: flex;
-    align-items: center;
-    color: #FFFFFF;
-    font-size: 24px;
-    font-style: italic;
-    padding-bottom: 2rem;
+    padding: 4rem 6rem;
 }
 
 .footer-section {
     display: flex;
     justify-content: space-between;
-    border-top: 1px solid #FFFFFF;
     padding-top: 2rem;
 
     h2 {
@@ -43,6 +33,10 @@
 }
 
 @media screen and (max-width: 800px) {
+    .footer-content {
+        padding: 3rem 2rem;
+    }
+
     .footer-section {
         flex-direction: column;
         gap: 2rem;

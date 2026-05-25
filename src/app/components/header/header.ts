@@ -7,4 +7,10 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
   templateUrl: './header.html',
   styleUrl: './header.scss',
 })
-export class Header { }
+export class Header {
+  navbarMobileVisible: boolean = false;
+
+  toggleMobileMenu(): void {
+    this.navbarMobileVisible = !this.navbarMobileVisible;
+  }
+}
