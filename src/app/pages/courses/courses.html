@@ -45,8 +45,11 @@
                 <p class="course-card-head">{{ course.subject }}</p>
                 <div class="course-card-content">
                     <h3>{{ course.courseName }}</h3>
-                    <p>{{ course.courseCode }}</p>
-                    <p>{{ course.points }} hp</p>
+                    <span>
+                        <p>{{ course.courseCode }}</p>
+                        <p>{{ course.points }} hp</p>
+                        <a [href]="course.syllabus" target="_blank">Kursplan</a>
+                    </span>
 
                     @if (courseAdded(course.courseCode)) {
                     <button class="add-btn" (click)="addCourse(course)" disabled>

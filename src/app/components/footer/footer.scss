@@ -21,10 +21,6 @@
         margin-top: 7px;
     }
 
-    h2 {
-        margin-bottom: 0.5rem;
-    }
-
     li {
         margin-top: 10px;
 
@@ -46,6 +42,15 @@
 
     .footer-section {
         flex-direction: column;
-        gap: 2rem;
+        gap: 2.5rem;
+
+        img {
+            margin-top: 0;
+            max-width: 45px;
+        }
+    }
+
+    h2 {
+        font-size: 20px;
     }
 }
