@@ -16,6 +16,7 @@ export class Courses {
   sortOrder = signal(""); // Sortering
   selectedSubject = signal(""); // Ämne
 
+  // Services
   courseService = inject(CourseService);
   scheduleService = inject(ScheduleService);
 
@@ -30,6 +31,7 @@ export class Courses {
     const subject = this.selectedSubject();
     let filtered = this.courses();
 
+    // Om input angetts
     if (filter) {
       filtered = filtered.filter(c =>
         c.courseCode.toLowerCase().includes(filter) ||
@@ -46,7 +48,7 @@ export class Courses {
     return filtered;
   })
 
-  // Ämnesval
+  // Ämnen från API
   subjects = computed(() => {
     const allSubjects = this.courses().map(course => course.subject);
 
@@ -97,6 +99,12 @@ export class Courses {
     return this.filteredCourses();
   })
 
+  // Kontroll om kurs sparats för ändring av knapps UI
+  courseAdded(courseCode: string): boolean {
+    // Returnerar true/false
+    return this.scheduleService.scheduleCourses().some(c => c.courseCode === courseCode);
+  }
+
   // Lägg till kurs
   addCourse(course: Course) {
     this.scheduleService.addCourse(course);
@@ -116,10 +124,6 @@ export class Courses {
   onCoursesSorted(order: string) {
     this.sortOrder.set(order);
   }
-
-  /* trackCourse(course: Course): string {
-    return `${course.courseCode}-${course.subjectCode}`;
-  } */
 
   // Anropar course-service
   async loadCourses() {

@@ -70,6 +70,20 @@
          flex-grow: 1;
          padding: 1rem;
          gap: 8px;
+
+         .add-btn {
+             &:disabled {
+               background-color: #f6f5f4;
+               color: #000000;
+               border: 1px solid #808080;
+               opacity: 0.7;
+               cursor: auto;
+
+               &:hover {
+                  box-shadow: none;
+               }
+             }
+         }
       }
    }
 }

@@ -43,7 +43,13 @@
                     <h3>{{ course.courseName }}</h3>
                     <p>{{ course.courseCode }}</p>
                     <p>{{ course.points }} hp</p>
+
+                    @if (courseAdded(course.courseCode)) {
+                    <button class="add-btn" (click)="addCourse(course)" disabled>
+                        Tillagd</button>
+                    } @else {
                     <button (click)="addCourse(course)">Lägg till</button>
+                    }
                 </div>
             </div>
             }
