@@ -1,6 +1,4 @@
 .header {
-    text-transform: uppercase;
-    font-weight: bold;
     position: fixed;
     inset: 0% 0% auto;
     z-index: 100;
@@ -8,7 +6,7 @@
     -webkit-backdrop-filter: blur(14px);
     background-color: #f6f5f4c5;
     border-bottom: 1px solid #f6f5f41a;
-    min-height: 70px;
+    min-height: 90px;
 }
 
 .header-content {
@@ -17,28 +15,41 @@
     justify-content: space-between;
     max-width: 1280px;
     margin-top: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 6px;
     margin-left: auto;
     margin-right: auto;
 }
 
 .logo {
-    color: #000000;
-    font-size: 24px;
     padding: 0.5rem 1rem;
 
     &.logo-hidden {
         visibility: hidden;
     }
+
+    img {
+        max-width: 90px;
+    }
 }
 
 .nav {
-    font-size: 18px;
+    font-size: 20px;
     padding: 0.5rem 1rem;
 
     .nav-links {
         display: flex;
         gap: 2rem;
+        font-weight: 400;
+
+        a {
+            &:hover {
+                box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.3);
+            }
+
+            &.active {
+                font-weight: 700;
+            }
+        }
     }
 }
 
@@ -48,16 +59,7 @@ a {
     display: flex;
     align-items: center;
     justify-content: center;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-
-    &:hover {
-        box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.3);
-    }
-
-    &.active {
-        border-bottom: 3px solid #86c9cb;
-    }
+    border-radius: 10px;
 }
 
 /* Mobil navigering */
@@ -69,9 +71,9 @@ a {
     span {
         display: block;
         background-color: black;
-        width: 35px;
-        height: 5px;
-        margin-top: 6px;
+        width: 26px;
+        height: 3px;
+        margin-top: 5px;
     }
 }
 
@@ -103,6 +105,10 @@ a {
 
     .logo {
         font-size: 20px;
+
+        img {
+            max-width: 60px;
+        }
     }
 
     .nav {

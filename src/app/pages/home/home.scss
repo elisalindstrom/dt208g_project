@@ -9,20 +9,22 @@
     img {
         width: 100%;
         height: 90vh;
+        max-height: 100%;
         object-fit: cover;
         position: relative;
+        padding: 2rem 1rem;
     }
 
     .hero-text {
-        font-size: 30px;
+        font-size: 34px;
         position: absolute;
-        bottom: 8%;
+        bottom: 15%;
         left: 10%;
 
         a {
             background-color: #86c9cb;
             padding: 1rem 1.5rem;
-            border-radius: 10px;
+            border-radius: 5px;
             display: inline-block;
 
             &:hover {
@@ -36,7 +38,8 @@
     .hero {
 
         img {
-            height: 50vh;
+            height: 75vh;
+            padding: 1rem 0rem;
         }
 
         .hero-text {

@@ -1,6 +1,8 @@
 <div class="header">
     <div class="header-content">
-        <a routerLink="home" class="logo" [class.logo-hidden]="navbarMobileVisible">Norruniversitetet</a>
+        <a routerLink="home" class="logo" [class.logo-hidden]="navbarMobileVisible">
+            <img src="/images/logo.svg" alt="Norruniversitetet logotyp">
+        </a>
 
         <!-- Meny desktop -->
         <nav class="nav">
@@ -8,7 +10,7 @@
                 <li><a routerLink="courses" routerLinkActive="active"
                         [routerLinkActiveOptions]="{exact: true}">Kurslista</a></li>
                 <li><a routerLink="schedule" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Mina
-                        kurser</a></li>
+                        kurser ({{ scheduleService.scheduleCourses().length }})</a></li>
             </ul>
         </nav>
 
@@ -27,7 +29,7 @@
                     (click)="toggleMobileMenu()">Kurslista</a></li>
             <li><a routerLink="schedule" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"
                     (click)="toggleMobileMenu()">Mina
-                    kurser</a></li>
+                    kurser ({{ scheduleService.scheduleCourses().length }})</a></li>
         </ul>
     </nav>
     }

@@ -34,8 +34,12 @@
             </div>
         </div>
 
-        <h2>Kurser</h2>
+        <h2 class="course-list-header">Kurser</h2>
         <div class="course-list">
+            @if (sortedCourses().length === 0) {
+            <p class="empty-list">Sökningen gav inget resultat.</p>
+            }
+
             @for (course of sortedCourses(); track course.courseCode + '-' + course.subjectCode) {
             <div class="course-card">
                 <p class="course-card-head">{{ course.subject }}</p>

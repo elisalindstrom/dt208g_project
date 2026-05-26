@@ -13,17 +13,24 @@
 .footer-section {
     display: flex;
     justify-content: space-between;
+    align-items: flex-start;
     padding-top: 2rem;
+
+    img {
+        max-width: 70px;
+        margin-top: 7px;
+    }
 
     h2 {
         margin-bottom: 0.5rem;
     }
 
     li {
-        margin-bottom: 0.5rem;
+        margin-top: 10px;
 
         a {
             color: #FFFFFF;
+            padding: 3px 0;
 
             &:hover {
                 text-decoration: underline;

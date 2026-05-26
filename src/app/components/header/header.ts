@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
+import { ScheduleService } from '../../services/schedule-service';
 
 @Component({
   selector: 'app-header',
@@ -8,6 +9,8 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
   styleUrl: './header.scss',
 })
 export class Header {
+  scheduleService = inject(ScheduleService);
+
   navbarMobileVisible: boolean = false;
 
   toggleMobileMenu(): void {

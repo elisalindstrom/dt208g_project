@@ -130,7 +130,6 @@ export class Courses {
     try {
       const response = await this.courseService.getCourses();
       this.courses.set(response);
-      console.table(response); // TA BORT!!
     } catch (error) {
       console.error(error);
     }
