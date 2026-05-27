@@ -2,10 +2,16 @@
     max-width: 1280px;
     margin-left: auto;
     margin-right: auto;
-    padding: 1rem;
+    padding: 3rem 1rem;
 
     p {
         margin-top: 16px;
         margin-bottom: 16px;
+    }
+}
+
+@media screen and (max-width: 950px) {
+    .content {
+        padding: 3.5rem 1rem;
     }
 }

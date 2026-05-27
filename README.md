@@ -2,7 +2,7 @@
 Applikation skapad i Angular som hämtar kursdata från JSON-fil. Möjlighet att söka, filtrera och sortera kursdata samt spara kurser i ett ramschema.
 
 ## Installation
-Efter nedklonat repository installeras beroenden med kommando npm install. Utvecklingsserver startas med ng serve.
+Efter nedklonat repository installera beroenden med kommando npm install. Utvecklingsserver startas med ng serve.
 
 ## Länk liveversion
 https://norruniversitetet.onrender.com/home
@@ -19,5 +19,21 @@ https://norruniversitetet.onrender.com/home
 Extra funktionaliteter:
 - Visa antalet sparade kurser i menyvalet "Mina kurser"
 - Begränsad rendering av kurser med möjlighet att successivt visa fler kurser
+
+## Projektstruktur
+```bash
+public/
+├── /api
+├── /images
+src/
+├── app
+│   ├── /components
+│   ├── /interfaces
+│   ├── /pages
+│   ├── /services
+│   ├── app.routes.ts
+│   ├── app.scss
+│   └── app.html
+```
 
 Av Elisa L. 2026

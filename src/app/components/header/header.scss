@@ -81,6 +81,7 @@
         padding: 1rem;
 
         a {
+            margin-top: 10px;
             margin-bottom: 16px;
             padding: 0.5rem 1rem;
             display: flex;
@@ -97,7 +98,7 @@
 
 @media screen and (max-width: 800px) {
     .header {
-        min-height: 70px;
+        min-height: 60px;
     }
 
     .header-content {
