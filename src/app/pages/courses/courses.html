@@ -64,7 +64,9 @@
         </div>
 
         <div class="show-more-container">
+            @if (sortedCourses().length > visibleSortedCourses().length) {
             <button class="show-more-btn" (click)="showMoreCourses()">Visa fler kurser</button>
+            }
         </div>
 
     </section>

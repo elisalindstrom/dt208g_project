@@ -12,7 +12,6 @@ import { ScheduleService } from '../../services/schedule-service';
 })
 export class Courses {
   // SIGNALS
-  courses = signal<Course[]>([]);
   filterInput = signal(""); // Filtrering
   sortOrder = signal(""); // Sortering
   selectedSubject = signal(""); // Ämne
@@ -24,7 +23,7 @@ export class Courses {
 
   // Körs vid start
   ngOnInit(): void {
-    this.loadCourses();
+    this.courseService.loadCourses();
   }
 
   // COMPUTED
@@ -37,7 +36,7 @@ export class Courses {
   filteredCourses = computed(() => {
     const filter = this.filterInput().trim().toLowerCase();
     const subject = this.selectedSubject();
-    let filtered = this.courses();
+    let filtered = this.courseService.courses();
 
     // Om input angetts
     if (filter) {
@@ -58,7 +57,7 @@ export class Courses {
 
   // Alla ämnen
   subjects = computed(() => {
-    const allSubjects = this.courses().map(course => course.subject);
+    const allSubjects = this.courseService.courses().map(course => course.subject);
 
     return [...new Set(allSubjects)].sort();
   })
@@ -123,29 +122,20 @@ export class Courses {
     this.visibleCourses.update(value => value + 24);
   }
 
-  // Ändrar signalvärdet för filtrering
+  // Ändrar signalvärdet för filtrering + återställ antal kurser som ska visas
   onCoursesFiltered(filter: string) {
     this.filterInput.set(filter);
+    this.visibleCourses.set(24);
   }
 
-  // Ändrar signalvärdet för ämnesval
+  // Ändrar signalvärdet för ämnesval + återställ antal kurser som ska visas
   onSubjectChange(subject: string) {
     this.selectedSubject.set(subject);
+    this.visibleCourses.set(24);
   }
 
   // Ändrar signalvärdet för sortering
   onCoursesSorted(order: string) {
     this.sortOrder.set(order);
-  }
-
-  // API
-  // Anropar course-service
-  async loadCourses() {
-    try {
-      const response = await this.courseService.getCourses();
-      this.courses.set(response);
-    } catch (error) {
-      console.error(error);
-    }
   }
 }

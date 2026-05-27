@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { inject, Injectable } from '@angular/core';
+import { inject, Injectable, signal } from '@angular/core';
 import { Course } from '../interfaces/course';
 import { firstValueFrom } from 'rxjs';
 
@@ -7,12 +7,18 @@ import { firstValueFrom } from 'rxjs';
   providedIn: 'root',
 })
 export class CourseService {
-  private url: string = '/api/miun_courses.json';
+  courses = signal<Course[]>([]);
 
+  private url: string = '/api/miun_courses.json';
   http = inject(HttpClient);
 
-  async getCourses(): Promise<Course[]> {
-    const courses = this.http.get<Course[]>(this.url);
-    return await firstValueFrom(courses);
+  // Hämta och spara data
+  async loadCourses() {
+    try {
+      const response = await firstValueFrom(this.http.get<Course[]>(this.url));
+      this.courses.set(response);
+    } catch (error) {
+      console.error(error);
+    }
   }
 }

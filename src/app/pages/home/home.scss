@@ -16,12 +16,25 @@
     }
 
     .hero-text {
-        font-size: 34px;
         position: absolute;
         bottom: 15%;
         left: 10%;
+        background-color: #000000bc;
+        color: #FFFFFF;
+        padding: 1.5rem;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        max-width: 100%;
+        overflow-wrap: break-word;
+
+        .hero-header {
+            font-size: 40px;
+            font-weight: 500;
+            padding-bottom: 1rem;
+        }
 
         a {
+            font-size: 20px;
             background-color: #86c9cb;
             box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
             padding: 1rem 1.5rem;
@@ -32,11 +45,29 @@
                 text-decoration: underline;
                 text-underline-offset: 8px;
             }
-
-            span {
-                font-weight: 700;
-            }
         }
+    }
+}
+
+.statistics-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 5rem 1rem;
+
+    .jumbo {
+        font-size: 44px;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .statistics-section {
+        flex-direction: column;
+        gap: 4rem;
+        padding: 3rem 1rem;
     }
 }
 
@@ -44,15 +75,28 @@
     .hero {
 
         img {
-            height: 75vh;
+            height: 80vh;
             padding: 1rem 0rem;
         }
 
         .hero-text {
-            font-size: 24px;
             left: 5%;
             right: 5%;
             bottom: 2rem;
+
+            .hero-header {
+                font-size: 24px;
+            }
+
+            a {
+                font-size: 16px;
+            }
+        }
+    }
+
+    .statistics-section {
+        .jumbo {
+            font-size: 30px;
         }
     }
 }

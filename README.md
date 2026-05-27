@@ -18,6 +18,6 @@ https://norruniversitetet.onrender.com/home
 
 Extra funktionaliteter:
 - Visa antalet sparade kurser i menyvalet "Mina kurser"
-- Begränsad rendering av kurser med möjlighet att succesivt visa fler
+- Begränsad rendering av kurser med möjlighet att successivt visa fler kurser
 
 Av Elisa L. 2026
