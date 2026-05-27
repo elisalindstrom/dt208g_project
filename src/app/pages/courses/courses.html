@@ -17,7 +17,8 @@
         </form>
 
         <div class="search-result-top">
-            <h2>Sökresultat: <span class="length">Visar {{ sortedCourses().length }} kurser</span>
+            <h2>Sökresultat: <span class="length">Visar {{ visibleSortedCourses().length }} av {{ sortedCourses().length
+                    }} kurser</span>
             </h2>
 
             <div class="sort-control">
@@ -40,7 +41,7 @@
             <p class="empty-list">Sökningen gav inget resultat.</p>
             }
 
-            @for (course of sortedCourses(); track course.courseCode + '-' + course.subjectCode) {
+            @for (course of visibleSortedCourses(); track course.courseCode + '-' + course.subjectCode) {
             <div class="course-card">
                 <p class="course-card-head">{{ course.subject }}</p>
                 <div class="course-card-content">
@@ -60,6 +61,10 @@
                 </div>
             </div>
             }
+        </div>
+
+        <div class="show-more-container">
+            <button class="show-more-btn" (click)="showMoreCourses()">Visa fler kurser</button>
         </div>
 
     </section>

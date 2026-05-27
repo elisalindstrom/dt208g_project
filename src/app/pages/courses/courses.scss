@@ -78,7 +78,7 @@ $card-background-color: #FFFFFF;
          gap: 8px;
 
          span {
-            margin-bottom: 16px;
+            margin-bottom: 8px;
 
             a {
                color: #285b5d;
@@ -107,6 +107,13 @@ $card-background-color: #FFFFFF;
    }
 }
 
+.show-more-container {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   margin-top: 16px;
+}
+
 input,
 select {
    font-size: 16px;
@@ -123,6 +130,11 @@ button {
       color: #000000;
       border: 1px solid #000000;
    }
+}
+
+.show-more-btn {
+   background-color: #285b5d;
+   max-width: 600px;
 }
 
 @media screen and (max-width: 950px) {

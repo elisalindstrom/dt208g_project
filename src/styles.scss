@@ -1,9 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&display=swap');
 
 $primary-color: #f6f5f4;
 $text-color: #000000;
-$font-stack: "Inter", Arial, sans-serif;
+$font-stack: "Inter Tight", Arial, sans-serif;
 
 * {
     box-sizing: border-box;
@@ -17,6 +17,10 @@ body {
     font-family: $font-stack;
     font-size: 16px;
     line-height: 1.5;
+}
+
+p {
+    max-width: 65ch;
 }
 
 h1 {

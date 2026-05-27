@@ -7,6 +7,10 @@
                 </h2>
             </div>
         </div>
+        @if (scheduleService.scheduleCourses().length === 0) {
+        <p class="empty-list">Inga kurser sparade. Gå till <a routerLink="/courses">kurslistan</a> för att lägga
+            till dina kurser.</p>
+        }
         <div class="course-list">
             @for (course of scheduleService.scheduleCourses(); track course.courseCode + '-' + course.subjectCode) {
             <div class="course-card">

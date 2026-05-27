@@ -56,19 +56,19 @@ $card-background-color: #FFFFFF;
             gap: 8px;
 
             span {
-                margin-bottom: 16px;
-
-                a {
-                    color: #285b5d;
-                    font-weight: 600;
-                    padding: 3px 0;
-
-                    &:hover {
-                        text-decoration: underline;
-                    }
-                }
+                margin-bottom: 8px;
             }
         }
+    }
+}
+
+a {
+    color: #285b5d;
+    font-weight: 600;
+    padding: 3px 0;
+
+    &:hover {
+        text-decoration: underline;
     }
 }
 

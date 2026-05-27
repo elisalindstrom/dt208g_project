@@ -11,12 +11,14 @@ import { ScheduleService } from '../../services/schedule-service';
   styleUrl: './courses.scss',
 })
 export class Courses {
+  // SIGNALS
   courses = signal<Course[]>([]);
   filterInput = signal(""); // Filtrering
   sortOrder = signal(""); // Sortering
   selectedSubject = signal(""); // Ämne
+  visibleCourses = signal(24); // Kurser som visas
 
-  // Services
+  // SERVICES
   courseService = inject(CourseService);
   scheduleService = inject(ScheduleService);
 
@@ -24,6 +26,12 @@ export class Courses {
   ngOnInit(): void {
     this.loadCourses();
   }
+
+  // COMPUTED
+  // Visa fler kurser
+  visibleSortedCourses = computed(() => {
+    return this.sortedCourses().slice(0, this.visibleCourses());
+  })
 
   // Filtrering
   filteredCourses = computed(() => {
@@ -48,7 +56,7 @@ export class Courses {
     return filtered;
   })
 
-  // Ämnen från API
+  // Alla ämnen
   subjects = computed(() => {
     const allSubjects = this.courses().map(course => course.subject);
 
@@ -99,15 +107,20 @@ export class Courses {
     return this.filteredCourses();
   })
 
-  // Kontroll om kurs sparats för ändring av knapps UI
-  courseAdded(courseCode: string): boolean {
-    // Returnerar true/false
-    return this.scheduleService.scheduleCourses().some(c => c.courseCode === courseCode);
-  }
-
+  // UI
   // Lägg till kurs
   addCourse(course: Course) {
     this.scheduleService.addCourse(course);
+  }
+
+  // Kontroll om kurs sparats för ändring av knapps UI
+  courseAdded(courseCode: string): boolean {
+    return this.scheduleService.scheduleCourses().some(c => c.courseCode === courseCode);
+  }
+
+  // Visa fler kurser
+  showMoreCourses() {
+    this.visibleCourses.update(value => value + 24);
   }
 
   // Ändrar signalvärdet för filtrering
@@ -125,6 +138,7 @@ export class Courses {
     this.sortOrder.set(order);
   }
 
+  // API
   // Anropar course-service
   async loadCourses() {
     try {
