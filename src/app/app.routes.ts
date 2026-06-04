@@ -3,11 +3,13 @@ import { Home } from './pages/home/home';
 import { Courses } from './pages/courses/courses';
 import { Schedule } from './pages/schedule/schedule';
 import { NotFound } from './pages/not-found/not-found';
+import { About } from './pages/about/about';
 
 export const routes: Routes = [
     { path: 'home', component: Home },
     { path: 'courses', component: Courses },
     { path: 'schedule', component: Schedule },
+    { path: 'about', component: About },
     { path: '', redirectTo: 'home', pathMatch: 'full' },
     { path: '**', component: NotFound }
 ];

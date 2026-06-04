@@ -9,7 +9,7 @@ import { firstValueFrom } from 'rxjs';
 export class CourseService {
   courses = signal<Course[]>([]);
 
-  private url: string = '/api/miun_courses.json';
+  private url: string = '/data/miun_courses.json';
   http = inject(HttpClient);
 
   // Hämta och spara data

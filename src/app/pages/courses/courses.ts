@@ -13,8 +13,8 @@ import { ScheduleService } from '../../services/schedule-service';
 export class Courses {
   // SIGNALS
   filterInput = signal(""); // Filtrering
-  sortOrder = signal(""); // Sortering
   selectedSubject = signal(""); // Ämne
+  sortOrder = signal(""); // Sortering
   visibleCourses = signal(24); // Kurser som visas
 
   // SERVICES

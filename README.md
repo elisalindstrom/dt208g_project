@@ -23,7 +23,7 @@ Extra funktionaliteter:
 ## Projektstruktur
 ```bash
 public/
-├── /api
+├── /data
 ├── /images
 src/
 ├── app

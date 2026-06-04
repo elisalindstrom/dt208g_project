@@ -1,0 +1,44 @@
+.content {
+    max-width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 3rem 1rem;
+
+    .ingress {
+        font-size: 18px;
+        margin-bottom: 1.5rem;
+    }
+
+    p {
+        margin-top: 16px;
+        margin-bottom: 16px;
+    }
+
+    a {
+        color: #285b5d;
+        font-weight: 600;
+        padding: 3px 0;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    h2 {
+        margin-top: 2rem;
+    }
+
+    .last-updated {
+        margin-top: 2rem;
+
+        span {
+            font-weight: bold;
+        }
+    }
+}
+
+@media screen and (max-width: 950px) {
+    .content {
+        padding: 3.5rem 1rem;
+    }
+}

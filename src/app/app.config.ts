@@ -7,7 +7,7 @@ export const appConfig: ApplicationConfig = {
   providers: [
     provideBrowserGlobalErrorListeners(),
     provideRouter(routes, withInMemoryScrolling({
-      scrollPositionRestoration: "top"
+      scrollPositionRestoration: "enabled"
     }))
   ]
 };
