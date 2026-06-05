@@ -20,6 +20,18 @@
                     <span>
                         <p>{{ course.courseCode }}</p>
                         <p>{{ course.points }} hp</p>
+                        <p>@if (course.level === 'GR') {
+                            Grundnivå
+                            } @else if (course.level === 'AV') {
+                            Avancerad nivå
+                            } @else if (course.level === 'FO') {
+                            Forskarnivå
+                            } @else if (course.level === 'BE') {
+                            Behörighetsgivande utbildning
+                            } @else {
+                            Övrig nivå
+                            }
+                        </p>
                         <a [href]="course.syllabus" target="_blank">Kursplan</a>
                     </span>
                     <button (click)="removeCourse(course)">Ta bort</button>
