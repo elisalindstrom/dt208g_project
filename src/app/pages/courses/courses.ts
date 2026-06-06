@@ -27,7 +27,7 @@ export class Courses {
   }
 
   // COMPUTED
-  // Visa fler kurser
+  // Begränsar antalet kurser som visas
   visibleSortedCourses = computed(() => {
     return this.sortedCourses().slice(0, this.visibleCourses());
   })
@@ -55,11 +55,12 @@ export class Courses {
     return filtered;
   })
 
-  // Alla ämnen
+  // Lista med ämnen
   subjects = computed(() => {
     const allSubjects = this.courseService.courses().map(course => course.subject);
-
-    return [...new Set(allSubjects)].sort();
+    // Skapa en ny array med endast unika värden och sortera i bokstavsordning
+    const uniqueSubjects = [...new Set(allSubjects)].sort();
+    return uniqueSubjects;
   })
 
   // Sortering
@@ -112,29 +113,29 @@ export class Courses {
     this.scheduleService.addCourse(course);
   }
 
-  // Kontroll om kurs sparats för ändring av knapps UI
+  // Kontroll om kurs sparats för ändring av knapps tillstånd
   courseAdded(courseCode: string): boolean {
     return this.scheduleService.scheduleCourses().some(c => c.courseCode === courseCode);
   }
 
-  // Visa fler kurser
+  // Uppdaterar signalvärdet för kurser som visas
   showMoreCourses() {
     this.visibleCourses.update(value => value + 24);
   }
 
-  // Ändrar signalvärdet för filtrering + återställ antal kurser som ska visas
+  // Ändra signalvärdet för filtrering + återställ antal kurser som ska visas
   onCoursesFiltered(filter: string) {
     this.filterInput.set(filter);
     this.visibleCourses.set(24);
   }
 
-  // Ändrar signalvärdet för ämnesval + återställ antal kurser som ska visas
+  // Ändra signalvärdet för ämnesval + återställ antal kurser som ska visas
   onSubjectChange(subject: string) {
     this.selectedSubject.set(subject);
     this.visibleCourses.set(24);
   }
 
-  // Ändrar signalvärdet för sortering
+  // Ändra signalvärdet för sortering
   onCoursesSorted(order: string) {
     this.sortOrder.set(order);
   }

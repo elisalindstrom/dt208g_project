@@ -17,7 +17,7 @@ export class Schedule {
     this.scheduleService.deleteCourse(course);
   }
 
-  // Uträkning total högskolepoäng
+  // Uträkning summa av högskolepoäng samtliga sparade kurser
   totalPoints(): number {
     let total = 0;
     const courses = this.scheduleService.scheduleCourses();

@@ -37,6 +37,7 @@
 
         <h2 class="course-list-header">Kurser</h2>
         <div class="course-list">
+            <!-- Hantering av tomma sökresultat -->
             @if (sortedCourses().length === 0) {
             <p class="empty-list">Sökningen gav inget resultat.</p>
             }
@@ -49,6 +50,7 @@
                     <span>
                         <p class="course-code">{{ course.courseCode }}</p>
                         <p>{{ course.points }} hp</p>
+                        <!-- Visar utbildningsnivå baserat på angiven förkortning -->
                         <p>@if (course.level === 'GR') {
                             Grundnivå
                             } @else if (course.level === 'AV') {
@@ -75,6 +77,7 @@
             }
         </div>
 
+        <!-- Knappen visas endast om fler kurser finns att visa -->
         <div class="show-more-container">
             @if (sortedCourses().length > visibleSortedCourses().length) {
             <button class="show-more-btn" (click)="showMoreCourses()">Visa fler kurser</button>

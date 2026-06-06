@@ -7,6 +7,7 @@
                 </h2>
             </div>
         </div>
+        <!-- Visas om inga sparade kurser finns -->
         @if (scheduleService.scheduleCourses().length === 0) {
         <p class="empty-list">Inga kurser sparade. Gå till <a routerLink="/courses">kurslistan</a> för att lägga
             till dina kurser.</p>
