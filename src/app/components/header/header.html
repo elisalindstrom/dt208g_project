@@ -14,7 +14,8 @@
             </ul>
         </nav>
 
-        <button class="menu-btn" type="button" (click)="toggleMobileMenu()">
+        <button class="menu-btn" type="button" (click)="toggleMobileMenu()" [attr.aria-expanded]="navbarMobileVisible"
+            [attr.aria-label]="navbarMobileVisible ? 'Stäng meny' : 'Öppna meny'">
             <span></span>
             <span></span>
             <span></span>
